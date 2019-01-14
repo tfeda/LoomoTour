@@ -3,6 +3,7 @@ package com.segway.robot.locomotionsample;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -16,6 +17,13 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getActionBar().setDisplayHomeAsUpEnabled(true);
+        TourControl tourControl = new TourControl();
+        try {
+            Log.i("MAIN", "In main");
+            tourControl.setupTour(getApplicationContext());
+        } catch(Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override

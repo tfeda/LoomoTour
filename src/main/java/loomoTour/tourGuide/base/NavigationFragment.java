@@ -12,6 +12,7 @@ import com.segway.robot.algo.Pose2D;
 import com.segway.robot.algo.minicontroller.CheckPoint;
 import com.segway.robot.algo.minicontroller.CheckPointStateListener;
 import com.segway.robot.locomotionsample.R;
+import com.segway.robot.locomotionsample.TourControl;
 import com.segway.robot.sdk.locomotion.sbv.Base;
 
 /**
@@ -33,6 +34,7 @@ public class NavigationFragment extends BaseFragment implements View.OnClickList
             @Override
             public void onCheckPointArrived(CheckPoint checkPoint, final Pose2D realPose, boolean isLast) {
                 Log.d(TAG, "onCheckPointArrived: x: " + checkPoint.getX() + " y: " + checkPoint.getY());
+                TourControl.getInstance().completedTask("Moving");
             }
 
             @Override
@@ -53,14 +55,7 @@ public class NavigationFragment extends BaseFragment implements View.OnClickList
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.navigation_test:
-                mBase.setControlMode(Base.CONTROL_MODE_NAVIGATION);
-                mBase.cleanOriginalPoint();
-                Pose2D pose2D = mBase.getOdometryPose(-1);
-                mBase.setOriginalPoint(pose2D);
-                mBase.addCheckPoint(1f, 0, (float) (Math.PI /2));
-                mBase.addCheckPoint(1f, 1f, (float) (Math.PI));
-                mBase.addCheckPoint(0f, 1f, (float) (-Math.PI /2));
-                mBase.addCheckPoint(0, 0, 0);
+                TourControl.getInstance().beginTour();
                 break;
             case R.id.stop:
                 mBase.clearCheckPointsAndStop();
