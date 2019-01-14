@@ -1,4 +1,4 @@
-package com.segway.robot.locomotionsample.base;
+package loomoTour.tourGuide.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,8 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.segway.robot.locomotionsample.R;
-import com.segway.robot.locomotionsample.Util;
+import loomoTour.tourGuide.R;
+import loomoTour.tourGuide.Util;
 import com.segway.robot.sdk.locomotion.sbv.AngularVelocity;
 import com.segway.robot.sdk.locomotion.sbv.Base;
 import com.segway.robot.sdk.locomotion.sbv.LinearVelocity;

@@ -1,4 +1,4 @@
-package com.segway.robot.locomotionsample.base;
+package loomoTour.tourGuide.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,8 +11,8 @@ import android.widget.Button;
 import com.segway.robot.algo.Pose2D;
 import com.segway.robot.algo.minicontroller.CheckPoint;
 import com.segway.robot.algo.minicontroller.CheckPointStateListener;
-import com.segway.robot.locomotionsample.R;
-import com.segway.robot.locomotionsample.TourControl;
+import loomoTour.tourGuide.R;
+import loomoTour.tourGuide.TourControl;
 import com.segway.robot.sdk.locomotion.sbv.Base;
 
 /**

@@ -1,4 +1,4 @@
-package com.segway.robot.locomotionsample.base;
+package loomoTour.tourGuide.base;
 
 import android.content.Context;
 import android.os.Handler;
@@ -10,7 +10,7 @@ import com.segway.robot.algo.VLSPoseListener;
 import com.segway.robot.algo.minicontroller.CheckPoint;
 import com.segway.robot.algo.minicontroller.CheckPointStateListener;
 import com.segway.robot.algo.minicontroller.ObstacleStateChangedListener;
-import com.segway.robot.locomotionsample.TourControl;
+import loomoTour.tourGuide.TourControl;
 import com.segway.robot.sdk.base.bind.ServiceBinder;
 import com.segway.robot.sdk.locomotion.sbv.Base;
 import com.segway.robot.sdk.locomotion.sbv.StartVLSListener;

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">LocomotionSample</string>
+    <string name="app_name">LoomoTour</string>
     <string name="setlinearvelocity">setLinearVelocity</string>
     <string name="pi_pi">-PI ~ PI</string>
     <string name="setangularvelocity">setAngularVelocity</string>

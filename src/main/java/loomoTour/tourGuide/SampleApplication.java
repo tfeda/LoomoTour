@@ -1,4 +1,4 @@
-package com.segway.robot.locomotionsample;
+package loomoTour.tourGuide;
 
 import android.app.Application;
 import android.content.Context;

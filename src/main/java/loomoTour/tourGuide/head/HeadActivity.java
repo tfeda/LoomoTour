@@ -1,8 +1,7 @@
-package com.segway.robot.locomotionsample.head;
+package loomoTour.tourGuide.head;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -11,8 +10,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
-import com.segway.robot.locomotionsample.R;
-import com.segway.robot.locomotionsample.Util;
+import loomoTour.tourGuide.R;
+import loomoTour.tourGuide.Util;
 import com.segway.robot.sdk.base.bind.ServiceBinder;
 import com.segway.robot.sdk.locomotion.head.Head;
 

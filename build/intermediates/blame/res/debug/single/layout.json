@@ -1,42 +1,106 @@
 [
     {
-        "merged": "/Users/jacob/project/github_demos/LocomotionSample/build/intermediates/res/merged/debug/layout/activity_head.xml",
-        "source": "/Users/jacob/project/github_demos/LocomotionSample/src/main/res/layout/activity_head.xml"
+        "merged": "C:\\Users\\Trent\\AndroidStudioProjects\\LoomoTour\\build\\intermediates\\res\\merged\\debug\\layout\\activity_head.xml",
+        "source": "C:\\Users\\Trent\\AndroidStudioProjects\\LoomoTour\\src\\main\\res\\layout\\activity_head.xml"
     },
     {
-        "merged": "/Users/jacob/project/github_demos/LocomotionSample/build/intermediates/res/merged/debug/layout/fragment_base.xml",
-        "source": "/Users/jacob/project/github_demos/LocomotionSample/src/main/res/layout/fragment_base.xml"
+        "merged": "C:\\Users\\jacob\\Desktop\\zipFiles\\LocomotionSample\\build\\intermediates\\res\\merged\\debug\\layout\\activity_head.xml",
+        "source": "C:\\Users\\jacob\\Desktop\\zipFiles\\LocomotionSample\\src\\main\\res\\layout\\activity_head.xml"
     },
     {
-        "merged": "/Users/jacob/Desktop/zipFiles/LocomotionSample/build/intermediates/res/merged/debug/layout/activity_head.xml",
-        "source": "/Users/jacob/Desktop/zipFiles/LocomotionSample/src/main/res/layout/activity_head.xml"
+        "merged": "C:\\Users\\jacob\\Desktop\\zipFiles\\LocomotionSample\\build\\intermediates\\res\\merged\\debug\\layout\\navigation_fragment.xml",
+        "source": "C:\\Users\\jacob\\Desktop\\zipFiles\\LocomotionSample\\src\\main\\res\\layout\\navigation_fragment.xml"
     },
     {
-        "merged": "/Users/jacob/Desktop/zipFiles/LocomotionSample/build/intermediates/res/merged/debug/layout/fragment_base.xml",
-        "source": "/Users/jacob/Desktop/zipFiles/LocomotionSample/src/main/res/layout/fragment_base.xml"
+        "merged": "C:\\Users\\jacob\\project\\github_demos\\LocomotionSample\\build\\intermediates\\res\\merged\\debug\\layout\\activity_head.xml",
+        "source": "C:\\Users\\jacob\\project\\github_demos\\LocomotionSample\\src\\main\\res\\layout\\activity_head.xml"
     },
     {
-        "merged": "/Users/jacob/Desktop/zipFiles/LocomotionSample/build/intermediates/res/merged/debug/layout/navigation_fragment.xml",
-        "source": "/Users/jacob/Desktop/zipFiles/LocomotionSample/src/main/res/layout/navigation_fragment.xml"
+        "merged": "C:\\Users\\jacob\\project\\github_demos\\LocomotionSample\\build\\intermediates\\res\\merged\\debug\\layout\\navigation_fragment.xml",
+        "source": "C:\\Users\\jacob\\project\\github_demos\\LocomotionSample\\src\\main\\res\\layout\\navigation_fragment.xml"
     },
     {
-        "merged": "/Users/jacob/Desktop/zipFiles/LocomotionSample/build/intermediates/res/merged/debug/layout/activity_main.xml",
-        "source": "/Users/jacob/Desktop/zipFiles/LocomotionSample/src/main/res/layout/activity_main.xml"
+        "merged": "C:\\Users\\Trent\\AndroidStudioProjects\\LoomoTour\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_media.xml",
+        "source": "C:\\Users\\Trent\\AndroidStudioProjects\\LoomoTour\\build\\intermediates\\exploded-aar\\com.android.support\\support-media-compat\\26.1.0\\res\\layout\\notification_template_media.xml"
     },
     {
-        "merged": "/Users/jacob/project/github_demos/LocomotionSample/build/intermediates/res/merged/debug/layout/navigation_fragment.xml",
-        "source": "/Users/jacob/project/github_demos/LocomotionSample/src/main/res/layout/navigation_fragment.xml"
+        "merged": "C:\\Users\\jacob\\project\\github_demos\\LocomotionSample\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
+        "source": "C:\\Users\\jacob\\project\\github_demos\\LocomotionSample\\src\\main\\res\\layout\\activity_main.xml"
     },
     {
-        "merged": "/Users/jacob/project/github_demos/LocomotionSample/build/intermediates/res/merged/debug/layout/activity_base.xml",
-        "source": "/Users/jacob/project/github_demos/LocomotionSample/src/main/res/layout/activity_base.xml"
+        "merged": "C:\\Users\\jacob\\Desktop\\zipFiles\\LocomotionSample\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
+        "source": "C:\\Users\\jacob\\Desktop\\zipFiles\\LocomotionSample\\src\\main\\res\\layout\\activity_main.xml"
     },
     {
-        "merged": "/Users/jacob/project/github_demos/LocomotionSample/build/intermediates/res/merged/debug/layout/activity_main.xml",
-        "source": "/Users/jacob/project/github_demos/LocomotionSample/src/main/res/layout/activity_main.xml"
+        "merged": "C:\\Users\\Trent\\AndroidStudioProjects\\LoomoTour\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_big_media_custom.xml",
+        "source": "C:\\Users\\Trent\\AndroidStudioProjects\\LoomoTour\\build\\intermediates\\exploded-aar\\com.android.support\\support-media-compat\\26.1.0\\res\\layout\\notification_template_big_media_custom.xml"
     },
     {
-        "merged": "/Users/jacob/Desktop/zipFiles/LocomotionSample/build/intermediates/res/merged/debug/layout/activity_base.xml",
-        "source": "/Users/jacob/Desktop/zipFiles/LocomotionSample/src/main/res/layout/activity_base.xml"
+        "merged": "C:\\Users\\Trent\\AndroidStudioProjects\\LoomoTour\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
+        "source": "C:\\Users\\Trent\\AndroidStudioProjects\\LoomoTour\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Trent\\AndroidStudioProjects\\LoomoTour\\build\\intermediates\\res\\merged\\debug\\layout\\notification_media_cancel_action.xml",
+        "source": "C:\\Users\\Trent\\AndroidStudioProjects\\LoomoTour\\build\\intermediates\\exploded-aar\\com.android.support\\support-media-compat\\26.1.0\\res\\layout\\notification_media_cancel_action.xml"
+    },
+    {
+        "merged": "C:\\Users\\Trent\\AndroidStudioProjects\\LoomoTour\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_big_media_narrow.xml",
+        "source": "C:\\Users\\Trent\\AndroidStudioProjects\\LoomoTour\\build\\intermediates\\exploded-aar\\com.android.support\\support-media-compat\\26.1.0\\res\\layout\\notification_template_big_media_narrow.xml"
+    },
+    {
+        "merged": "C:\\Users\\Trent\\AndroidStudioProjects\\LoomoTour\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_base.xml",
+        "source": "C:\\Users\\Trent\\AndroidStudioProjects\\LoomoTour\\src\\main\\res\\layout\\fragment_base.xml"
+    },
+    {
+        "merged": "C:\\Users\\jacob\\Desktop\\zipFiles\\LocomotionSample\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_base.xml",
+        "source": "C:\\Users\\jacob\\Desktop\\zipFiles\\LocomotionSample\\src\\main\\res\\layout\\fragment_base.xml"
+    },
+    {
+        "merged": "C:\\Users\\Trent\\AndroidStudioProjects\\LoomoTour\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_media_custom.xml",
+        "source": "C:\\Users\\Trent\\AndroidStudioProjects\\LoomoTour\\build\\intermediates\\exploded-aar\\com.android.support\\support-media-compat\\26.1.0\\res\\layout\\notification_template_media_custom.xml"
+    },
+    {
+        "merged": "C:\\Users\\Trent\\AndroidStudioProjects\\LoomoTour\\build\\intermediates\\res\\merged\\debug\\layout\\notification_media_action.xml",
+        "source": "C:\\Users\\Trent\\AndroidStudioProjects\\LoomoTour\\build\\intermediates\\exploded-aar\\com.android.support\\support-media-compat\\26.1.0\\res\\layout\\notification_media_action.xml"
+    },
+    {
+        "merged": "C:\\Users\\Trent\\AndroidStudioProjects\\LoomoTour\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_lines_media.xml",
+        "source": "C:\\Users\\Trent\\AndroidStudioProjects\\LoomoTour\\build\\intermediates\\exploded-aar\\com.android.support\\support-media-compat\\26.1.0\\res\\layout\\notification_template_lines_media.xml"
+    },
+    {
+        "merged": "C:\\Users\\Trent\\AndroidStudioProjects\\LoomoTour\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_big_media.xml",
+        "source": "C:\\Users\\Trent\\AndroidStudioProjects\\LoomoTour\\build\\intermediates\\exploded-aar\\com.android.support\\support-media-compat\\26.1.0\\res\\layout\\notification_template_big_media.xml"
+    },
+    {
+        "merged": "C:\\Users\\Trent\\AndroidStudioProjects\\LoomoTour\\build\\intermediates\\res\\merged\\debug\\layout\\navigation_fragment.xml",
+        "source": "C:\\Users\\Trent\\AndroidStudioProjects\\LoomoTour\\src\\main\\res\\layout\\navigation_fragment.xml"
+    },
+    {
+        "merged": "C:\\Users\\jacob\\Desktop\\zipFiles\\LocomotionSample\\build\\intermediates\\res\\merged\\debug\\layout\\activity_base.xml",
+        "source": "C:\\Users\\jacob\\Desktop\\zipFiles\\LocomotionSample\\src\\main\\res\\layout\\activity_base.xml"
+    },
+    {
+        "merged": "C:\\Users\\jacob\\project\\github_demos\\LocomotionSample\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_base.xml",
+        "source": "C:\\Users\\jacob\\project\\github_demos\\LocomotionSample\\src\\main\\res\\layout\\fragment_base.xml"
+    },
+    {
+        "merged": "C:\\Users\\Trent\\AndroidStudioProjects\\LoomoTour\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_time.xml",
+        "source": "C:\\Users\\Trent\\AndroidStudioProjects\\LoomoTour\\build\\intermediates\\exploded-aar\\com.android.support\\support-compat\\26.1.0\\res\\layout\\notification_template_part_time.xml"
+    },
+    {
+        "merged": "C:\\Users\\Trent\\AndroidStudioProjects\\LoomoTour\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_chronometer.xml",
+        "source": "C:\\Users\\Trent\\AndroidStudioProjects\\LoomoTour\\build\\intermediates\\exploded-aar\\com.android.support\\support-compat\\26.1.0\\res\\layout\\notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "C:\\Users\\jacob\\project\\github_demos\\LocomotionSample\\build\\intermediates\\res\\merged\\debug\\layout\\activity_base.xml",
+        "source": "C:\\Users\\jacob\\project\\github_demos\\LocomotionSample\\src\\main\\res\\layout\\activity_base.xml"
+    },
+    {
+        "merged": "C:\\Users\\Trent\\AndroidStudioProjects\\LoomoTour\\build\\intermediates\\res\\merged\\debug\\layout\\activity_base.xml",
+        "source": "C:\\Users\\Trent\\AndroidStudioProjects\\LoomoTour\\src\\main\\res\\layout\\activity_base.xml"
+    },
+    {
+        "merged": "C:\\Users\\Trent\\AndroidStudioProjects\\LoomoTour\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_big_media_narrow_custom.xml",
+        "source": "C:\\Users\\Trent\\AndroidStudioProjects\\LoomoTour\\build\\intermediates\\exploded-aar\\com.android.support\\support-media-compat\\26.1.0\\res\\layout\\notification_template_big_media_narrow_custom.xml"
     }
 ]

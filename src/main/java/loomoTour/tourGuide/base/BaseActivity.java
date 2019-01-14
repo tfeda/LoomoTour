@@ -1,4 +1,4 @@
-package com.segway.robot.locomotionsample.base;
+package loomoTour.tourGuide.base;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,7 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-import com.segway.robot.locomotionsample.R;
+import loomoTour.tourGuide.R;
 
 import java.util.ArrayList;
 import java.util.List;

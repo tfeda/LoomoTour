@@ -1,10 +1,14 @@
 [
     {
-        "merged": "/Users/jacob/project/github_demos/LocomotionSample/build/intermediates/res/merged/debug/mipmap-xxxhdpi/ic_launcher.png",
-        "source": "/Users/jacob/project/github_demos/LocomotionSample/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
+        "merged": "C:\\Users\\Trent\\AndroidStudioProjects\\LoomoTour\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi\\ic_launcher.png",
+        "source": "C:\\Users\\Trent\\AndroidStudioProjects\\LoomoTour\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
     },
     {
-        "merged": "/Users/jacob/Desktop/zipFiles/LocomotionSample/build/intermediates/res/merged/debug/mipmap-xxxhdpi/ic_launcher.png",
-        "source": "/Users/jacob/Desktop/zipFiles/LocomotionSample/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
+        "merged": "C:\\Users\\jacob\\Desktop\\zipFiles\\LocomotionSample\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi\\ic_launcher.png",
+        "source": "C:\\Users\\jacob\\Desktop\\zipFiles\\LocomotionSample\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\jacob\\project\\github_demos\\LocomotionSample\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi\\ic_launcher.png",
+        "source": "C:\\Users\\jacob\\project\\github_demos\\LocomotionSample\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
     }
 ]

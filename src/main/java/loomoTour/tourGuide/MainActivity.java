@@ -1,4 +1,4 @@
-package com.segway.robot.locomotionsample;
+package loomoTour.tourGuide;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -7,8 +7,8 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.segway.robot.locomotionsample.base.BaseActivity;
-import com.segway.robot.locomotionsample.head.HeadActivity;
+import loomoTour.tourGuide.base.BaseActivity;
+import loomoTour.tourGuide.head.HeadActivity;
 
 public class MainActivity extends Activity {
 

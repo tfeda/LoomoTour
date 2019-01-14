@@ -1,4 +1,4 @@
-package com.segway.robot.locomotionsample.base;
+package loomoTour.tourGuide.base;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

@@ -1,4 +1,7 @@
-Name	Description	Xpoint	yPoint
-MC Hammer	Cant touch this	3	3
-MC Bammer	Cant touch this	2	2
-MC Pammer	Cant touch this	1	1
+Name,Description,xPoint,yPoint
+MC Hammer,Cant touch this,3,3
+,,1,1
+,,3,3
+,,1,1
+MC Hammer,Cant touch this,2,2
+MC Hammer,Cant touch this,1,1

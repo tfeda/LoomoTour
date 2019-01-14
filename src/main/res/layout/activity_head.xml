@@ -7,7 +7,7 @@
     android:clickable="true"
     android:focusableInTouchMode="true"
     android:orientation="horizontal"
-    tools:context="com.segway.robot.locomotionsample.head.HeadActivity">
+    tools:context="loomoTour.tourGuide.head.HeadActivity">
 
     <LinearLayout
         android:layout_width="0dp"

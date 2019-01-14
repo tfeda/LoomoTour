@@ -1,4 +1,4 @@
-package com.segway.robot.locomotionsample.base;
+package loomoTour.tourGuide.base;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -10,11 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 
-import com.segway.robot.locomotionsample.SampleApplication;
+import loomoTour.tourGuide.SampleApplication;
 import com.segway.robot.sdk.base.bind.ServiceBinder;
 import com.segway.robot.sdk.locomotion.sbv.Base;
-
-import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * Created by sgs on 2017/4/18.

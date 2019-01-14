@@ -1,8 +1,8 @@
-package com.segway.robot.locomotionsample;
+package loomoTour.tourGuide;
 
 import android.util.Log;
 import android.content.Context;
-import com.segway.robot.locomotionsample.base.LoomoBaseService;
+import loomoTour.tourGuide.base.LoomoBaseService;
 import java.io.*;
 import java.util.LinkedList;
 import java.util.Queue;
