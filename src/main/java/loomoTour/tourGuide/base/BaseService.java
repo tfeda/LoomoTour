@@ -1,7 +1,6 @@
 package loomoTour.tourGuide.base;
 
 import android.content.Context;
-import android.os.Handler;
 import android.util.Log;
 
 import com.segway.robot.algo.Pose2D;
@@ -19,34 +18,31 @@ import com.segway.robot.sdk.locomotion.sbv.StartVLSListener;
  * Created by abr on 22.12.17.
  */
 
-public class LoomoBaseService {
+public class BaseService {
 
-    private static final String TAG = "LoomoBaseService";
+    private static final String TAG = "BaseService";
 
     private Base base = null;
     private Context context;
-    private Handler timehandler;
-    private Runnable lastStop = null;
     private RobotCheckpointListener checkpointListener = null;
     private RobotVLSListener vlsListener = null;
     private TourControl tourControl;
     private float lastXPosition = 0f;
     private float lastYPosition = 0f;
 
-    public static LoomoBaseService instance;
+    public static BaseService instance;
 
-    public static LoomoBaseService getInstance() {
+    public static BaseService getInstance() {
         if (instance == null) {
-            throw new IllegalStateException("LoomoBaseService instance not initialized yet");
+            throw new IllegalStateException("BaseService instance not initialized yet");
         }
         return instance;
     }
 
-    public LoomoBaseService(Context context) {
-        timehandler = new Handler();
+    public BaseService(Context context) {
         this.context = context;
         base = Base.getInstance();
-
+        tourControl = TourControl.getInstance();
 //        initBase();
         this.instance = this;
     }
@@ -84,60 +80,26 @@ public class LoomoBaseService {
             Log.d(TAG, "starting VLS");
             if (vlsListener == null) {
                 vlsListener = new RobotVLSListener();
+                base.startVLS(true, true, vlsListener);
+                while(!base.isVLSStarted());
                 base.setVLSPoseListener(vlsPoseListener);
             }
-
-            base.startVLS(true, true, vlsListener);
-            // Wait for VLS listener to finish, otherwise our moves will throw exceptions
-            try {
-                while (!base.isVLSStarted()) {
-                    Log.d(TAG, "Waiting for VLS to get ready...");
-                    Thread.sleep(100);
-                }
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+//            try {
+//                while (!base.isVLSStarted()) {
+//                    Log.d(TAG, "Waiting for VLS to get ready...");
+//                    Thread.sleep(100);
+//                }
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
 
             // enable obstacle avoidance
             Log.d(TAG, "is obstacle avoidance on? " + base.isUltrasonicObstacleAvoidanceEnabled() + " with distance " + base.getUltrasonicObstacleAvoidanceDistance());
             base.setUltrasonicObstacleAvoidanceEnabled(true);
             base.setUltrasonicObstacleAvoidanceDistance(0.5f);
             base.setObstacleStateChangeListener(obstacleStateChangedListener);
-        }
-    }
+            Log.d(TAG, "is obstacle avoidance on? " + base.isUltrasonicObstacleAvoidanceEnabled() + " with distance " + base.getUltrasonicObstacleAvoidanceDistance());
 
-    public void move(float linearVelocity, float angularVelocity) {
-        setRawControlMode();
-        base.setLinearVelocity(linearVelocity);
-        base.setAngularVelocity(angularVelocity);
-
-        if (lastStop != null) {
-            timehandler.removeCallbacks(lastStop);
-            Log.d(TAG, "removed callback to stop");
-        }
-
-        lastStop = new Runnable() {
-            @Override
-            public void run() {
-                base.setLinearVelocity(0);
-                base.setAngularVelocity(0);
-            }
-        };
-
-
-        timehandler.postDelayed(lastStop, 1000);
-        Log.d(TAG, "added callback to stop");
-    }
-
-    private void setRawControlMode() {
-        if (base.isVLSStarted()) {
-            Log.d(TAG, "Stopping VLS");
-            base.stopVLS();
-        }
-
-        if (base.getControlMode() != Base.CONTROL_MODE_RAW) {
-            Log.d(TAG, "Setting control mode to: RAW");
-            base.setControlMode(Base.CONTROL_MODE_RAW);
         }
     }
 
@@ -224,14 +186,6 @@ public class LoomoBaseService {
             Log.d(TAG, "Ultrasonic: " + base.getUltrasonicDistance());
         }
     };
-
-    public float getLastXPosition() {
-        return lastXPosition;
-    }
-
-    public float getLastYPosition() {
-        return lastYPosition;
-    }
 
     public void disconnect() {
         this.base.unbindService();

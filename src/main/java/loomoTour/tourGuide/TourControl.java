@@ -2,7 +2,7 @@ package loomoTour.tourGuide;
 
 import android.util.Log;
 import android.content.Context;
-import loomoTour.tourGuide.base.LoomoBaseService;
+import loomoTour.tourGuide.base.BaseService;
 import java.io.*;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -52,9 +52,7 @@ public class TourControl {
      * Adds points to the tour
      */
     public void setupTour(Context context) throws IOException {
-//        addPoint(3, 0, "MC-Hammer", "Cant touch this");
-//        addPoint(6, 0, "MC-Hammer", "Cant touch this");
-//        addPoint(0, 0, "MC-Hammer", "Cant touch this");
+        Log.i(TAG, "In setupTour");
         InputStream inputStream = context.getResources().openRawResource(R.raw.test);
         CSVReader csvReader = new CSVReader(inputStream);
         Queue<String[]> csvLines = csvReader.read();
@@ -67,8 +65,13 @@ public class TourControl {
             String description = line[1];
             Queue<Float> xPoints = new LinkedList<Float>();
             Queue<Float> yPoints = new LinkedList<Float>();
+            Log.i(TAG, line[2] + " " + line[3]);
+            xPoints.add((Float.parseFloat(line[2])));
+            yPoints.add((Float.parseFloat(line[3])));
+
             while(csvLines.isEmpty() == false && csvLines.peek()[0].equals("") == false){
                 String[] pointLine = csvLines.remove();
+                Log.i(TAG, pointLine[2] + " " + pointLine[3]);
                 xPoints.add((Float.parseFloat(pointLine[2])));
                 yPoints.add((Float.parseFloat(pointLine[3])));
             }
@@ -94,7 +97,7 @@ public class TourControl {
         doneSpeaking = true; //TODO CHANGE TO FALSE
 
         currentPoint = tourPoints.remove();
-        LoomoBaseService.getInstance().moveToCoordinate(currentPoint.xList.remove(), currentPoint.yList.remove());
+        BaseService.getInstance().moveToCoordinate(currentPoint.xList.remove(), currentPoint.yList.remove());
         //TODO call the loomo to move to the destination of the new checkpoint
         //TODO concurrently call the loomo to read off the checkpoint name and description
     }
@@ -110,7 +113,7 @@ public class TourControl {
             case "Moving":
                 if(currentPoint.xList.isEmpty()) doneMoving = true;
                 else {
-                    LoomoBaseService.getInstance().moveToCoordinate(currentPoint.xList.remove(), currentPoint.yList.remove());
+                    BaseService.getInstance().moveToCoordinate(currentPoint.xList.remove(), currentPoint.yList.remove());
                 }
                 break;
             case "Speaking":

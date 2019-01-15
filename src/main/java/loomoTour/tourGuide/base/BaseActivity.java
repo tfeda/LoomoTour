@@ -14,7 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BaseActivity extends FragmentActivity {
-
     ViewPager mViewPager;
     BaseFragmentAdapter mBaseFragmentAdapter;
     Button mSimple;
