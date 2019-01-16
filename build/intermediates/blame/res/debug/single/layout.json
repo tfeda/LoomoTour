@@ -1,9 +1,5 @@
 [
     {
-        "merged": "C:\\Users\\Trent\\AndroidStudioProjects\\LoomoTour\\build\\intermediates\\res\\merged\\debug\\layout\\activity_head.xml",
-        "source": "C:\\Users\\Trent\\AndroidStudioProjects\\LoomoTour\\src\\main\\res\\layout\\activity_head.xml"
-    },
-    {
         "merged": "C:\\Users\\jacob\\Desktop\\zipFiles\\LocomotionSample\\build\\intermediates\\res\\merged\\debug\\layout\\activity_head.xml",
         "source": "C:\\Users\\jacob\\Desktop\\zipFiles\\LocomotionSample\\src\\main\\res\\layout\\activity_head.xml"
     },

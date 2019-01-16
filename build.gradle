@@ -56,6 +56,7 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.segway.robot:headsdk:0.6.746'
     compile 'com.segway.robot:basesdk:0.6.746'
+    compile 'com.segway.robot:speech-sdk:0.5.327'
     compile "org.apache.commons:commons-csv:1.5"
     compile 'com.android.support:support-v4:22.2.1'
     testCompile 'junit:junit:4.12'

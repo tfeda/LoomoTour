@@ -39,11 +39,10 @@ public class BaseService {
         return instance;
     }
 
-    public BaseService(Context context) {
+    public BaseService(Context context, TourControl tourControl) {
         this.context = context;
-        base = Base.getInstance();
-        tourControl = TourControl.getInstance();
-//        initBase();
+        this.tourControl = tourControl;
+        initBase();
         this.instance = this;
     }
 
@@ -65,7 +64,7 @@ public class BaseService {
 
     public void moveToCoordinate(float x, float y) {
         setupNavigationVLS();
-        Base.getInstance().addCheckPoint(x, y);
+        base.addCheckPoint(x, y);
     }
 
     private void setupNavigationVLS() {
@@ -81,9 +80,10 @@ public class BaseService {
             if (vlsListener == null) {
                 vlsListener = new RobotVLSListener();
                 base.startVLS(true, true, vlsListener);
-                while(!base.isVLSStarted());
+                while (!base.isVLSStarted()) ;
                 base.setVLSPoseListener(vlsPoseListener);
             }
+        }
 //            try {
 //                while (!base.isVLSStarted()) {
 //                    Log.d(TAG, "Waiting for VLS to get ready...");
@@ -100,7 +100,6 @@ public class BaseService {
             base.setObstacleStateChangeListener(obstacleStateChangedListener);
             Log.d(TAG, "is obstacle avoidance on? " + base.isUltrasonicObstacleAvoidanceEnabled() + " with distance " + base.getUltrasonicObstacleAvoidanceDistance());
 
-        }
     }
 
     private void setNavControlMode() {

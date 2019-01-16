@@ -60,6 +60,7 @@ INJECTED from C:\Users\Trent\AndroidStudioProjects\LoomoTour\src\main\AndroidMan
 MERGED from [com.segway.robot:headsdk:0.6.746] C:\Users\Trent\AndroidStudioProjects\LoomoTour\build\intermediates\exploded-aar\com.segway.robot\headsdk\0.6.746\AndroidManifest.xml:7:5-9:41
 MERGED from [com.segway.robot:basesdk:0.6.746] C:\Users\Trent\AndroidStudioProjects\LoomoTour\build\intermediates\exploded-aar\com.segway.robot\basesdk\0.6.746\AndroidManifest.xml:7:5-9:41
 MERGED from [com.segway.robot:basic-class:0.6.179] C:\Users\Trent\AndroidStudioProjects\LoomoTour\build\intermediates\exploded-aar\com.segway.robot\basic-class\0.6.179\AndroidManifest.xml:7:5-9:41
+MERGED from [com.segway.robot:speech-sdk:0.5.327] C:\Users\Trent\AndroidStudioProjects\LoomoTour\build\intermediates\exploded-aar\com.segway.robot\speech-sdk\0.5.327\AndroidManifest.xml:7:5-9:41
 MERGED from [com.segway.robot:sdkbase:0.1.69] C:\Users\Trent\AndroidStudioProjects\LoomoTour\build\intermediates\exploded-aar\com.segway.robot\sdkbase\0.1.69\AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:support-v4:22.2.1] C:\Users\Trent\AndroidStudioProjects\LoomoTour\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\AndroidManifest.xml:20:5-43
 	android:targetSdkVersion

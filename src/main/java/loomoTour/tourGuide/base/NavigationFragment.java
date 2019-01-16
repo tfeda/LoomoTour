@@ -14,6 +14,7 @@ import com.segway.robot.algo.minicontroller.CheckPointStateListener;
 
 import loomoTour.tourGuide.MainActivity;
 import loomoTour.tourGuide.R;
+import loomoTour.tourGuide.SampleApplication;
 import loomoTour.tourGuide.TourControl;
 import com.segway.robot.sdk.locomotion.sbv.Base;
 
@@ -57,8 +58,6 @@ public class NavigationFragment extends BaseFragment implements View.OnClickList
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.navigation_test:
-                BaseService baseService = new BaseService(MainActivity.getMainContext());
-                TourControl.getInstance().beginTour();
                 break;
             case R.id.stop:
                 mBase.clearCheckPointsAndStop();

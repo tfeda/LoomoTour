@@ -82,7 +82,13 @@ public class TourControl {
     /**
      * Begins the tour
      */
-    public void beginTour() {
+    public void beginTour(Context context) {
+        BaseService.getInstance().resetPosition();
+        try{
+            setupTour(context);
+        } catch (IOException e){
+            e.printStackTrace();
+        }
         executeNextPoint();
     }
 
