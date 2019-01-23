@@ -54,6 +54,7 @@ repositories {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'org.apache.commons:commons-csv:1.5'
     compile 'com.segway.robot:headsdk:0.6.746'
     compile 'com.segway.robot:basesdk:0.6.746'
     compile 'com.segway.robot:speech-sdk:0.5.327'

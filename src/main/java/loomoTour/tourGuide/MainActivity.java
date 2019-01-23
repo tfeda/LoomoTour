@@ -7,11 +7,14 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
-import loomoTour.tourGuide.base.BaseActivity;
+import java.io.IOException;
+
 import loomoTour.tourGuide.base.BaseService;
+import loomoTour.tourGuide.speech.SpeechService;
 
 public class MainActivity extends Activity {
     private BaseService base;
+    private SpeechService speech;
     private TourControl tourControl;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +22,12 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         getActionBar().setDisplayHomeAsUpEnabled(true);
         tourControl = new TourControl();
+//        //DEBUG
+//        try {
+//            tourControl.setupTour(getApplicationContext());
+//        } catch (Exception e){
+//            e.printStackTrace();
+//        }
         initServices();
     }
     @Override
@@ -43,5 +52,13 @@ public class MainActivity extends Activity {
 
     public void initServices(){
     base = new BaseService(getApplicationContext(), tourControl);
-    };
+    speech = new SpeechService(getApplicationContext(), tourControl);
+    }
+
+    @Override
+    protected void onDestroy(){
+        super.onDestroy();
+        this.base.disconnect();
+        this.speech.disconnect();
+    }
 }

@@ -1,31 +1,42 @@
 package loomoTour.tourGuide;
 
+import android.graphics.Point;
 import android.util.Log;
 import android.content.Context;
+
+import com.segway.robot.algo.minicontroller.CheckPoint;
+
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVParser;
+import org.apache.commons.csv.CSVRecord;
+
 import loomoTour.tourGuide.base.BaseService;
+import loomoTour.tourGuide.speech.SpeechService;
+
 import java.io.*;
+import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 
 public class TourControl {
 
-    private Queue<Checkpoint> tourPoints;
+    private Queue<TourPoint> tourPoints;
     private int checkpointIds;
     private static String TAG = "TourControl:";
     private boolean doneMoving;
     private boolean doneSpeaking;
-    private Checkpoint currentPoint;
+    private TourPoint currentPoint;
     private static TourControl instance;
 
 
     public TourControl() {
-        tourPoints = new LinkedList<Checkpoint>();
         checkpointIds = 0;
         instance = this;
     }
 
-    public static TourControl getInstance(){
+    public static TourControl getInstance() {
         return instance;
     }
 
@@ -37,9 +48,9 @@ public class TourControl {
      * @param name:        name of the destination
      * @param description: description of the destination
      */
-    private void addPoint(Queue<Float> xList, Queue<Float> yList, String name, String description) {
+    private void addTourPoint(Queue<Float> xList, Queue<Float> yList, String name, String description) {
 
-        Checkpoint newPoint = new Checkpoint(checkpointIds, xList, yList, name, description);
+        TourPoint newPoint = new TourPoint(checkpointIds, xList, yList, name, description);
         try {
             tourPoints.add(newPoint);
         } catch (Exception e) {
@@ -53,29 +64,46 @@ public class TourControl {
      */
     public void setupTour(Context context) throws IOException {
         Log.i(TAG, "In setupTour");
+        tourPoints = new LinkedList<TourPoint>();
         InputStream inputStream = context.getResources().openRawResource(R.raw.test);
-        CSVReader csvReader = new CSVReader(inputStream);
-        Queue<String[]> csvLines = csvReader.read();
-        //Remove the title from the queue
-        csvLines.remove();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+        CSVParser csvParser = new CSVParser(reader, CSVFormat.DEFAULT);
+        Iterator<CSVRecord> csvIterator = csvParser.iterator();
+
         //create checkpoints out of the remaining lines
-        while(csvLines.isEmpty() == false) {
-            String[] line = csvLines.remove();
-            String name = line[0];
-            String description = line[1];
+        CSVRecord record = csvIterator.next();
+        while (csvIterator.hasNext()) {
+            String name = record.get(0);
+            String description = record.get(1);
+
+
             Queue<Float> xPoints = new LinkedList<Float>();
             Queue<Float> yPoints = new LinkedList<Float>();
-            Log.i(TAG, line[2] + " " + line[3]);
-            xPoints.add((Float.parseFloat(line[2])));
-            yPoints.add((Float.parseFloat(line[3])));
+            xPoints.add((Float.parseFloat(record.get(2))));
+            yPoints.add((Float.parseFloat(record.get(3))));
 
-            while(csvLines.isEmpty() == false && csvLines.peek()[0].equals("") == false){
-                String[] pointLine = csvLines.remove();
-                Log.i(TAG, pointLine[2] + " " + pointLine[3]);
-                xPoints.add((Float.parseFloat(pointLine[2])));
-                yPoints.add((Float.parseFloat(pointLine[3])));
+            if (csvIterator.hasNext()) {
+                record = csvIterator.next();
+                if (record.get(0).isEmpty()) {
+                    while (csvIterator.hasNext()) {
+                        if (!record.get(0).isEmpty()) {
+                            break;
+                        }
+                        xPoints.add((Float.parseFloat(record.get(2))));
+                        yPoints.add((Float.parseFloat(record.get(3))));
+                        if(csvIterator.hasNext()) record = csvIterator.next();
+                    }
+                    if(csvIterator.hasNext() == false){
+                        xPoints.add((Float.parseFloat(record.get(2))));
+                        yPoints.add((Float.parseFloat(record.get(3))));
+                    }
+                    addTourPoint(xPoints, yPoints, name, description);
+                }
             }
-            addPoint(xPoints, yPoints, name, description);
+        }
+        List<TourPoint> tourPointList= (LinkedList<TourPoint>) tourPoints;
+        for(int i = 0; i < tourPointList.size(); i++){
+            tourPointList.get(i).print();
         }
     }
 
@@ -84,9 +112,9 @@ public class TourControl {
      */
     public void beginTour(Context context) {
         BaseService.getInstance().resetPosition();
-        try{
+        try {
             setupTour(context);
-        } catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
         executeNextPoint();
@@ -100,12 +128,16 @@ public class TourControl {
 
 
         doneMoving = false;
-        doneSpeaking = true; //TODO CHANGE TO FALSE
-
+        doneSpeaking = false;
         currentPoint = tourPoints.remove();
-        BaseService.getInstance().moveToCoordinate(currentPoint.xList.remove(), currentPoint.yList.remove());
-        //TODO call the loomo to move to the destination of the new checkpoint
-        //TODO concurrently call the loomo to read off the checkpoint name and description
+        Log.i(TAG, "current Point:" + " " + currentPoint.xQueue.peek() + " " + currentPoint.yQueue.peek() + " " + currentPoint.description);
+        BaseService.getInstance().moveToCoordinate(currentPoint.xQueue.remove(), currentPoint.yQueue.remove());
+        if (currentPoint.description.equals("")) {
+            doneSpeaking = true;
+        } else {
+            SpeechService.getInstance().speak(currentPoint.description);
+
+        }
     }
 
     /**
@@ -115,11 +147,12 @@ public class TourControl {
      * @param task
      */
     public void completedTask(String task) {
+        Log.i(TAG, "Task completed: " + task);
         switch (task) {
             case "Moving":
-                if(currentPoint.xList.isEmpty()) doneMoving = true;
+                if (currentPoint.xQueue.isEmpty()) doneMoving = true;
                 else {
-                    BaseService.getInstance().moveToCoordinate(currentPoint.xList.remove(), currentPoint.yList.remove());
+                    BaseService.getInstance().moveToCoordinate(currentPoint.xQueue.remove(), currentPoint.yQueue.remove());
                 }
                 break;
             case "Speaking":
@@ -127,6 +160,7 @@ public class TourControl {
                 break;
         }
         if (doneMoving && doneSpeaking) {
+            Log.i(TAG, "Tasks are complete");
             executeNextPoint();
         }
     }
@@ -136,22 +170,36 @@ public class TourControl {
     }
 
     /**
-     * Checkpoint node that controls the speaking and movement
+     * TourPoint node that controls the speaking and movement
      * data for a hypothetical point of the tour
      */
-    public class Checkpoint {
+    public class TourPoint {
         private int id;
-        public Queue<Float> xList;
-        public Queue<Float> yList;
+        public Queue<Float> xQueue;
+        public Queue<Float> yQueue;
         public String name;
         public String description;
 
-        public Checkpoint(int id, Queue<Float> xList, Queue<Float> yList, String name, String description) {
-            this.xList = xList;
-            this.yList = yList;
+        public TourPoint(int id, Queue<Float> xList, Queue<Float> yList, String name, String description) {
+            this.xQueue = xList;
+            this.yQueue = yList;
             this.name = name;
             this.description = description;
             this.id = id;
+        }
+
+        public void print(){
+            List<Float> xList= (LinkedList<Float>) xQueue;
+            List<Float> yList= (LinkedList<Float>) yQueue;
+
+            String xyList = "{";
+            for (int i = 0; i < xQueue.size(); i++){
+                xyList += "(" + xList.get(i) + ", " + yList.get(i) + ") ";
+            }
+            xyList += "}";
+
+            Log.i(TAG, name + " " + description + " " + xyList);
+
         }
     }
 }

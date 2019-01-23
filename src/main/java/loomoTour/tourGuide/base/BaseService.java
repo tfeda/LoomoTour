@@ -46,13 +46,19 @@ public class BaseService {
         this.instance = this;
     }
 
+    /**
+     * restarts the base service
+     */
     public void restartService() {
         initBase();
     }
 
+    /**
+     * Sets the current position of Loomo to be the origin for future navigation.
+     */
     public void resetPosition() {
+        while(base.isVLSStarted() == false){ }
         Log.d(TAG, "Resetting navigation coordinates to 0,0");
-        setupNavigationVLS();
         base.cleanOriginalPoint();
         PoseVLS pose2D = base.getVLSPose(-1);
         base.setOriginalPoint(pose2D);
@@ -62,13 +68,19 @@ public class BaseService {
         Log.i(TAG, "Reset position");
     }
 
+    /**
+     *  Moves the loomo to the specified coordinates. The coordinates are based on Loomo's tracked starting point.
+     * @param x x location, in meters
+     * @param y y location, in meters
+     */
     public void moveToCoordinate(float x, float y) {
-        setupNavigationVLS();
         base.addCheckPoint(x, y);
     }
 
+    /**
+     * Sets up Loomo's navigation to be based on its visual Localization Service
+     */
     private void setupNavigationVLS() {
-        setNavControlMode();
         if (checkpointListener == null) {
             checkpointListener = new RobotCheckpointListener();
             base.setOnCheckPointArrivedListener(checkpointListener);
@@ -94,21 +106,16 @@ public class BaseService {
 //            }
 
             // enable obstacle avoidance
-            Log.d(TAG, "is obstacle avoidance on? " + base.isUltrasonicObstacleAvoidanceEnabled() + " with distance " + base.getUltrasonicObstacleAvoidanceDistance());
-            base.setUltrasonicObstacleAvoidanceEnabled(true);
-            base.setUltrasonicObstacleAvoidanceDistance(0.5f);
-            base.setObstacleStateChangeListener(obstacleStateChangedListener);
-            Log.d(TAG, "is obstacle avoidance on? " + base.isUltrasonicObstacleAvoidanceEnabled() + " with distance " + base.getUltrasonicObstacleAvoidanceDistance());
+//            base.setUltrasonicObstacleAvoidanceEnabled(true);
+//            base.setUltrasonicObstacleAvoidanceDistance(.25f);
+//            base.setObstacleStateChangeListener(obstacleStateChangedListener);
+//            Log.d(TAG, "is obstacle avoidance on? " + base.isUltrasonicObstacleAvoidanceEnabled() + " with distance " + base.getUltrasonicObstacleAvoidanceDistance());
 
     }
 
-    private void setNavControlMode() {
-        if (base.getControlMode() != Base.CONTROL_MODE_NAVIGATION) {
-            Log.d(TAG, "Setting control mode to: NAVIGATION");
-            base.setControlMode(Base.CONTROL_MODE_NAVIGATION);
-        }
-    }
-
+    /**
+     * Inits the base service
+     */
     private void initBase() {
         base = Base.getInstance();
         base.bindService(context, new ServiceBinder.BindStateListener() {
@@ -116,24 +123,7 @@ public class BaseService {
             public void onBind() {
                 Log.d(TAG, "Base bind successful");
                 base.setControlMode(Base.CONTROL_MODE_NAVIGATION);
-
-                base.setOnCheckPointArrivedListener(new CheckPointStateListener() {
-                    @Override
-                    public void onCheckPointArrived(CheckPoint checkPoint, final Pose2D realPose, boolean isLast) {
-                        Log.i(TAG, "Position before moving: " + lastXPosition + " / " + lastYPosition);
-                        lastXPosition = checkPoint.getX();
-                        lastYPosition = checkPoint.getY();
-                        Log.i(TAG, "Position after moving: " + lastXPosition + " / " + lastYPosition);
-                    }
-
-                    @Override
-                    public void onCheckPointMiss(CheckPoint checkPoint, Pose2D realPose, boolean isLast, int reason) {
-                        lastXPosition = checkPoint.getX();
-                        lastYPosition = checkPoint.getY();
-                        Log.i(TAG, "Missed checkpoint: " + lastXPosition + " " + lastYPosition);
-                    }
-                });
-
+                setupNavigationVLS();
             }
 
             @Override
@@ -141,7 +131,7 @@ public class BaseService {
                 Log.d(TAG, "Base bind failed");
             }
         });
-    }
+        }
 
     private ObstacleStateChangedListener obstacleStateChangedListener = new ObstacleStateChangedListener() {
         @Override
@@ -150,6 +140,9 @@ public class BaseService {
         }
     };
 
+    /**
+     * Listener that reacts to Loomo arriving or missing a checkPoint
+     */
     private class RobotCheckpointListener implements CheckPointStateListener {
         @Override
         public void onCheckPointArrived(CheckPoint checkPoint, final Pose2D realPose, boolean isLast){
@@ -181,8 +174,6 @@ public class BaseService {
     private VLSPoseListener vlsPoseListener = new VLSPoseListener() {
         @Override
         public void onVLSPoseUpdate(long timestamp, float pose_x, float pose_y, float pose_theta, float v, float w) {
-            Log.d(TAG, "onVLSPoseUpdate() called with: timestamp = [" + timestamp + "], pose_x = [" + pose_x + "], pose_y = [" + pose_y + "], pose_theta = [" + pose_theta + "], v = [" + v + "], w = [" + w + "]");
-            Log.d(TAG, "Ultrasonic: " + base.getUltrasonicDistance());
         }
     };
 
