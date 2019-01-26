@@ -96,20 +96,12 @@ public class BaseService {
                 base.setVLSPoseListener(vlsPoseListener);
             }
         }
-//            try {
-//                while (!base.isVLSStarted()) {
-//                    Log.d(TAG, "Waiting for VLS to get ready...");
-//                    Thread.sleep(100);
-//                }
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
 
-            // enable obstacle avoidance
-//            base.setUltrasonicObstacleAvoidanceEnabled(true);
-//            base.setUltrasonicObstacleAvoidanceDistance(.25f);
-//            base.setObstacleStateChangeListener(obstacleStateChangedListener);
-//            Log.d(TAG, "is obstacle avoidance on? " + base.isUltrasonicObstacleAvoidanceEnabled() + " with distance " + base.getUltrasonicObstacleAvoidanceDistance());
+//             enable obstacle avoidance
+            base.setUltrasonicObstacleAvoidanceEnabled(true);
+            base.setUltrasonicObstacleAvoidanceDistance(.25f);
+            base.setObstacleStateChangeListener(obstacleStateChangedListener);
+            Log.d(TAG, "is obstacle avoidance on? " + base.isUltrasonicObstacleAvoidanceEnabled() + " with distance " + base.getUltrasonicObstacleAvoidanceDistance());
 
     }
 
