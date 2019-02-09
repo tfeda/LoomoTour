@@ -61,7 +61,7 @@ public class TourControl {
      * Adds points to the tour from a file specified in /src/res/raw/
      * @param context application context to pass file information to the file Reader
      */
-    public void setupTour(Context context) throws IOException {
+    private void setupTour(Context context) throws IOException {
         tourPoints = new LinkedList<TourPoint>();
 
         /****************************************CHOOSE TOUR FILE HERE******************************************/
