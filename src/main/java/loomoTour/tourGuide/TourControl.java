@@ -1,11 +1,7 @@
 package loomoTour.tourGuide;
 
-import android.graphics.Point;
 import android.util.Log;
 import android.content.Context;
-
-import com.segway.robot.algo.minicontroller.CheckPoint;
-
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
@@ -19,7 +15,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-
+/**
+ * Main controller of the tour. Manipulates Loomo's Services based on the specification of a read in file.
+ */
 public class TourControl {
 
     private Queue<TourPoint> tourPoints;
@@ -46,7 +44,7 @@ public class TourControl {
      * @param xList:       x coordinate of the loomo bot after moving
      * @param yList:       y coordinate of the loomo bot after moviong
      * @param name:        name of the destination
-     * @param description: description of the destination
+     * @param description: description of the destination that is read by the Loomo Speak service
      */
     private void addTourPoint(Queue<Float> xList, Queue<Float> yList, String name, String description) {
 
@@ -60,10 +58,10 @@ public class TourControl {
     }
 
     /**
-     * Adds points to the tour
+     * Adds points to the tour from a file specified in /src/res/raw/
+     * @param context application context to pass file information to the file Reader
      */
     public void setupTour(Context context) throws IOException {
-        Log.i(TAG, "In setupTour");
         tourPoints = new LinkedList<TourPoint>();
         InputStream inputStream = context.getResources().openRawResource(R.raw.test);
         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
@@ -107,9 +105,6 @@ public class TourControl {
         }
     }
 
-    /**
-     * Begins the tour
-     */
     public void beginTour(Context context) {
         BaseService.getInstance().resetPosition();
         try {
@@ -165,12 +160,15 @@ public class TourControl {
         }
     }
 
+    /**
+     * In progress: The end of navigation and speech is reached
+     */
     private void endTour() {
         //TODO give loomo an action for when it reaches the end of the tour
     }
 
     /**
-     * TourPoint node that controls the speaking and movement
+     * TourPoint node that holds the speaking and movement
      * data for a hypothetical point of the tour
      */
     public class TourPoint {
@@ -188,6 +186,9 @@ public class TourControl {
             this.id = id;
         }
 
+        /**
+         * Prints out tourPoint information to the console for debugging
+         */
         public void print(){
             List<Float> xList= (LinkedList<Float>) xQueue;
             List<Float> yList= (LinkedList<Float>) yQueue;

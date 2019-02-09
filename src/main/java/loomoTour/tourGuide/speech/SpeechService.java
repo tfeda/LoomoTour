@@ -1,14 +1,11 @@
 package loomoTour.tourGuide.speech;
 import android.content.Context;
-import android.os.Message;
 import android.util.Log;
 
 import com.segway.robot.sdk.base.bind.ServiceBinder;
 import com.segway.robot.sdk.voice.Speaker;
 import com.segway.robot.sdk.voice.VoiceException;
 import com.segway.robot.sdk.voice.tts.TtsListener;
-
-import loomoTour.tourGuide.R;
 import loomoTour.tourGuide.TourControl;
 
 
@@ -45,21 +42,17 @@ public class SpeechService {
         tts = new TtsListener() {
             @Override
             public void onSpeechStarted(String s) {
-                //s is speech content, callback this method when speech is starting.
-                Log.d(TAG, "onSpeechStarted() called with: s = [" + s + "]");
 
             }
 
             @Override
             public void onSpeechFinished(String s) {
-                //s is speech content, callback this method when speech is finish.
                 tourControl.completedTask("Speaking");
             }
 
             @Override
             public void onSpeechError(String s, String s1) {
                 //s is speech content, callback this method when speech occurs error.
-                Log.d(TAG, "onSpeechError() called with: s = [" + s + "], s1 = [" + s1 + "]");
             }
         };
     }

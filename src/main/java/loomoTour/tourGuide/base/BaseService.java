@@ -2,7 +2,6 @@ package loomoTour.tourGuide.base;
 
 import android.content.Context;
 import android.util.Log;
-
 import com.segway.robot.algo.Pose2D;
 import com.segway.robot.algo.PoseVLS;
 import com.segway.robot.algo.VLSPoseListener;
@@ -15,7 +14,9 @@ import com.segway.robot.sdk.locomotion.sbv.Base;
 import com.segway.robot.sdk.locomotion.sbv.StartVLSListener;
 
 /**
- * Created by abr on 22.12.17.
+ *  Class that controls all functions that involve the Base SDK
+ *
+ * @author Trenton Feda
  */
 
 public class BaseService {
@@ -62,10 +63,6 @@ public class BaseService {
         base.cleanOriginalPoint();
         PoseVLS pose2D = base.getVLSPose(-1);
         base.setOriginalPoint(pose2D);
-
-        lastXPosition = 0f;
-        lastYPosition = 0f;
-        Log.i(TAG, "Reset position");
     }
 
     /**
@@ -85,8 +82,6 @@ public class BaseService {
             checkpointListener = new RobotCheckpointListener();
             base.setOnCheckPointArrivedListener(checkpointListener);
         }
-        Log.d(TAG, "is vls started?" + base.isVLSStarted());
-
         if (!base.isVLSStarted()) {
             Log.d(TAG, "starting VLS");
             if (vlsListener == null) {
@@ -138,7 +133,6 @@ public class BaseService {
     private class RobotCheckpointListener implements CheckPointStateListener {
         @Override
         public void onCheckPointArrived(CheckPoint checkPoint, final Pose2D realPose, boolean isLast){
-            Log.i(TAG, "Arrived to checkpoint: " + checkPoint);
             tourControl.completedTask("Moving");
         }
 
@@ -148,6 +142,9 @@ public class BaseService {
         }
     }
 
+    /**
+     * VLS listener
+     */
     private class RobotVLSListener implements StartVLSListener {
         @Override
         public void onOpened() {
@@ -163,12 +160,18 @@ public class BaseService {
         }
     }
 
+    /**
+     * Listens for changes in the pose based on vls data
+     */
     private VLSPoseListener vlsPoseListener = new VLSPoseListener() {
         @Override
         public void onVLSPoseUpdate(long timestamp, float pose_x, float pose_y, float pose_theta, float v, float w) {
         }
     };
 
+    /**
+     * Disconnects the base service
+     */
     public void disconnect() {
         this.base.unbindService();
     }

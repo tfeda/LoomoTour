@@ -1,12 +1,10 @@
 package loomoTour.tourGuide;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-
 import java.io.IOException;
 
 import loomoTour.tourGuide.base.BaseService;
@@ -49,7 +47,7 @@ public class MainActivity extends Activity {
                 break;
         }
     }
-
+    
     public void initServices(){
     base = new BaseService(getApplicationContext(), tourControl);
     speech = new SpeechService(getApplicationContext(), tourControl);
