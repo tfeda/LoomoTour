@@ -47,7 +47,7 @@ public class MainActivity extends Activity {
                 break;
         }
     }
-    
+
     public void initServices(){
     base = new BaseService(getApplicationContext(), tourControl);
     speech = new SpeechService(getApplicationContext(), tourControl);

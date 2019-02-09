@@ -63,7 +63,12 @@ public class TourControl {
      */
     public void setupTour(Context context) throws IOException {
         tourPoints = new LinkedList<TourPoint>();
-        InputStream inputStream = context.getResources().openRawResource(R.raw.test);
+
+        /****************************************CHOOSE TOUR FILE HERE******************************************/
+
+        InputStream inputStream = context.getResources().openRawResource(R.raw.example);
+
+        /*******************************************************************************************************/
         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
         CSVParser csvParser = new CSVParser(reader, CSVFormat.DEFAULT);
         Iterator<CSVRecord> csvIterator = csvParser.iterator();

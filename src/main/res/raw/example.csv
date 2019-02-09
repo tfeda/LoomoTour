@@ -1,0 +1,11 @@
+This is the name of the first point in the Tour. This point has 3 x and y locations	"This is the description of the First point in the tour and is spoken by Loomo, Put the entire description of the point in this cell, and none below"	1	0
+		2	0
+		2.8	1
+"This is the name of the second point in the tour and doesn’t have a description, and has only 1 x and y location"		4	2.5
+Bridge	Information about the bridge spoken by Loomo	13	4
+		13	5
+		18.18	2
+		2	11
+Statue	Information about the statue spoken by Loomo	23	12
+"This is the name of the final point
+ in the tour"		2	5
