@@ -66,7 +66,7 @@ public class TourControl {
 
         /****************************************CHOOSE TOUR FILE HERE******************************************/
 
-        InputStream inputStream = context.getResources().openRawResource(R.raw.example);
+        InputStream inputStream = context.getResources().openRawResource(R.raw.test);
 
         /*******************************************************************************************************/
         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
